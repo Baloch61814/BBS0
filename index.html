@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBS - Baloch Bouncer Services | Event Security Pakistan</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-red: #d90429;
+            --accent-gold: #ffb703;
+            --bg-dark: #0a0c10;
+            --card-bg: #12161f;
+            --input-bg: #1a202c;
+            --text-light: #f8f9fa;
+            --text-muted: #94a3b8;
+            --border-color: #2d3748;
+            --success-color: #3fb950;
+            --error-color: #f85149;
+            --whatsapp-green: #25d366;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 30px 15px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(217, 4, 41, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 183, 3, 0.08) 0%, transparent 40%),
+                linear-gradient(to bottom, rgba(10, 12, 16, 0.8), rgba(10, 12, 16, 0.95));
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 680px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(217, 4, 41, 0.2);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-red), var(--accent-gold), var(--primary-red));
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 25px;
+        }
+
+        .logo-box {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(145deg, #1f0206, #3a0007);
+            border: 2px solid var(--primary-red);
+            color: var(--accent-gold);
+            font-family: 'Cinzel', serif;
+            font-size: 34px;
+            font-weight: 900;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            box-shadow: 0 0 25px rgba(217, 4, 41, 0.5), inset 0 0 10px rgba(255, 183, 3, 0.3);
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+            position: relative;
+        }
+
+        .logo-box::after {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border-radius: 50%;
+            border: 1px dashed rgba(255, 183, 3, 0.4);
+        }
+
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 26px;
+            color: var(--text-light);
+            letter-spacing: 2px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .header p {
+            font-size: 12px;
+            color: var(--accent-gold);
+            margin-top: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 18px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary-red);
+            box-shadow: 0 0 12px rgba(217, 4, 41, 0.4);
+            background: #202736;
+        }
+
+        select option {
+            background: var(--card-bg);
+            color: var(--text-light);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--primary-red), #b00020);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 6px 20px rgba(217, 4, 41, 0.4);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(217, 4, 41, 0.6);
+            background: linear-gradient(135deg, #ef233c, var(--primary-red));
+        }
+
+        /* WhatsApp Button Styling */
+        .btn-whatsapp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 800;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            background: linear-gradient(135deg, #2fe675, #128c7e);
+        }
+
+        .btn-whatsapp svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 20px 0;
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .divider span {
+            padding: 0 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #statusMessage {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            display: none;
+        }
+
+        .status-success {
+            background: rgba(63, 185, 80, 0.15);
+            color: var(--success-color);
+            border: 1px solid var(--success-color);
+        }
+
+        .status-error {
+            background: rgba(248, 81, 73, 0.15);
+            color: var(--error-color);
+            border: 1px solid var(--error-color);
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            .container {
+                padding: 25px 20px;
+            }
+            .header h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div class="logo-box">BBS</div>
+        <h1>Baloch Bouncer Services</h1>
+        <p>Premium Event Security Booking</p>
+    </div>
+
+    <!-- Formspree Endpoint Integrated -->
+    <form id="bbsForm" action="https://formspree.io/f/xzedbzwa" method="POST">
+
+        <div class="form-group">
+            <label for="name">Client / Party Name *</label>
+            <input type="text" id="name" name="Client_Name" placeholder="Enter full name or company name" required>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="_replyto" placeholder="client123@gmail.com" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone / WhatsApp *</label>
+                <input type="tel" id="phone" name="Phone_Number" placeholder="+92 300 1234567" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="gender">Bouncer Preference *</label>
+                <select id="gender" name="Bouncer_Gender" required>
+                    <option value="">Select Option...</option>
+                    <option value="Male Bouncers">Male Bouncers</option>
+                    <option value="Female Bouncers">Female Bouncers</option>
+                    <option value="Male & Female Both">Both (Male & Female)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="bouncersCount">Number of Bouncers *</label>
+                <input type="number" id="bouncersCount" name="Total_Bouncers" min="1" placeholder="e.g. 6" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="eventDate">Event Date *</label>
+                <input type="date" id="eventDate" name="Event_Date" required>
+            </div>
+            <div class="form-group">
+                <label for="dutyHours">Duty Hours & Timings *</label>
+                <input type="text" id="dutyHours" name="Duty_Hours" placeholder="e.g. 6 Hours (8:00 PM to 2:00 AM)" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="budget">Budget (PKR / Per Day) *</label>
+                <input type="text" id="budget" name="Budget" placeholder="e.g. PKR 50,000" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Event Location / City *</label>
+                <input type="text" id="location" name="Event_Location" placeholder="e.g. DHA Phase 6, Karachi" required>
+            </div>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">Submit Booking Request</button>
+        <div id="statusMessage"></div>
+    </form>
+
+    <div class="divider"><span>OR</span></div>
+
+    <!-- Direct WhatsApp Link Button -->
+    <a href="https://wa.me/923150346701?text=Hello%20BBS%20Team,%20I%20want%20to%20inquire%20about%20bouncer%20booking%20services." target="_blank" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        Chat on WhatsApp
+    </a>
+</div>
+
+<script>
+    const form = document.getElementById("bbsForm");
+    const statusMsg = document.getElementById("statusMessage");
+    const submitBtn = document.getElementById("submitBtn");
+
+    form.addEventListener("submit", async function(event) {
+        event.preventDefault();
+        
+        submitBtn.disabled = true;
+        submitBtn.innerText = "SUBMITTING...";
+        statusMsg.style.display = "none";
+
+        const data = new FormData(event.target);
+
+        try {
+            const response = await fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                statusMsg.className = "status-success";
+                statusMsg.innerText = "Thank you! Your booking request has been submitted successfully.";
+                statusMsg.style.display = "block";
+                form.reset();
+            } else {
+                const result = await response.json();
+                statusMsg.className = "status-error";
+                if (result.hasOwnProperty('errors')) {
+                    statusMsg.innerText = result["errors"].map(error => error["message"]).join(", ");
+                } else {
+                    statusMsg.innerText = "Oops! There was a problem submitting your form.";
+                }
+                statusMsg.style.display = "block";
+            }
+        } catch (error) {
+            statusMsg.className = "status-error";
+            statusMsg.innerText = "Connection error. Please try again later.";
+            statusMsg.style.display = "block";
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerText = "SUBMIT BOOKING REQUEST";
+        }
+    });
+</script>
+
+</body>
+</html>
